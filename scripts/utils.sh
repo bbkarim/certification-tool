@@ -68,8 +68,21 @@ print_installation_success()
 
 check_ubuntu_os_version()
 {
-    UBUNTU_VERSION_NUMBER=$(lsb_release -sr)
-    if [ "$UBUNTU_VERSION_NUMBER" != "24.04" ]; then
+    MACHINE_ID_NUMBER=$(lsb_release -si)
+    MACHINE_VERSION_NUMBER=$(lsb_release -sr)
+
+    if [ "${MACHINE_ID_NUMBER~}" == "debian" ] && [ "$MACHINE_VERSION_NUMBER" != "13" ] && [ "$MACHINE_VERSION_NUMBER" != "n/a" ]; then
+        printf "\n\n"
+        printf "###################################################################################\n"
+        printf "######  Matter Certification-Tool requires Debian trixie (64-bit)  ######\n"
+        printf "###################################################################################\n"
+        printf "#                                                                                 #\n"
+        printf "#  Please format the SDCard and perform a fresh installation or                   #\n"
+        printf "#  update you OS and then run the auto-install script again.                      #\n"
+        printf "#                                                                                 #\n"
+        printf "###################################################################################\n"
+        return 1
+    elif [ "${MACHINE_ID_NUMBER~}" == "ubuntu" ] && [ "$MACHINE_VERSION_NUMBER" != "24.04" ]; then
         printf "\n\n"
         printf "###################################################################################\n"
         printf "######  Matter Certification-Tool requires Ubuntu Server 24.04 LTS (64-bit)  ######\n"
