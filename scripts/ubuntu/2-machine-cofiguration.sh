@@ -21,6 +21,7 @@ source "$SCRIPT_DIR/utils.sh"
 
 print_start_of_script
 
+LAN_INTERFACE="${LAN_INTERFACE:-eth0}"
 WLAN_INTERFACE="${WLAN_INTERFACE:-wlan0}"
 
 # Trust github
@@ -72,8 +73,8 @@ done
 print_script_step "Accept Router Advertisements on network interfaces"
 SYSCTL_FILE=/etc/sysctl.conf
 SYSCTL_SETTINGS=(
-    "net.ipv6.conf.eth0.accept_ra=2"
-    "net.ipv6.conf.eth0.accept_ra_rt_info_max_plen=64"
+    "net.ipv6.conf.$LAN_INTERFACE.accept_ra=2"
+    "net.ipv6.conf.$LAN_INTERFACE.accept_ra_rt_info_max_plen=64"
     "net.ipv6.conf.$WLAN_INTERFACE.accept_ra=2"
     "net.ipv6.conf.$WLAN_INTERFACE.accept_ra_rt_info_max_plen=64"
 )
