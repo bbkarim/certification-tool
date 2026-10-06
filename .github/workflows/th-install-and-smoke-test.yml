@@ -11,7 +11,7 @@ on:
 
 jobs:
   arm64-smoke-test:
-    runs-on: ubuntu-24.04-arm
+    runs-on: ubuntu-26.04-arm
     timeout-minutes: 180
     env:
       TH_TEST_CASE_ID: TC-ACE-1.1
