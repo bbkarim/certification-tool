@@ -5,7 +5,7 @@
 [submodule "backend"]
 	path = backend
 	branch = main
-	url = https://github.com/project-chip/certification-tool-backend
+	url = https://github.com/bbkarim/certification-tool-backend.git
 [submodule "frontend"]
 	path = frontend
 	branch = main
