@@ -4,8 +4,8 @@
 	url = https://github.com/project-chip/certification-tool-cli
 [submodule "backend"]
 	path = backend
-	branch = main
-	url = https://github.com/project-chip/certification-tool-backend
+	branch = bbkarim_v2.15-develop
+	url = https://github.com/bbkarim/certification-tool-backend.git
 [submodule "frontend"]
 	path = frontend
 	branch = main
